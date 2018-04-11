@@ -14,7 +14,8 @@
         <div id="diary-app">
 
             <div id="login-window" v-on:click="loginClicked()" v-if="!blockstack.isUserSignedIn()">
-                Log In!
+                <span v-if="!blockstack.isUserSignedIn() && !blockstack.isSignInPending()">Log In!</span>
+                <span v-if="blockstack.isSignInPending()">Loading...</span>
             </div>
 
             <div id="diary-title-container">
