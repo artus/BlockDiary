@@ -9,12 +9,12 @@ var app = new Vue({
         checkLogin() {
             if (this.blockstack.isSignInPending()) {
                 this.blockstack.handlePendingSignIn().then(function (userData) {
-                    window.location = url;
+                    window.location = "https//artusvranken.github.io/BlockDiary/";
                 });
             }
         },
         loginClicked() {
-            this.blockstack.redirectToSignIn(url, url + 'manifest.json', ['store_write']);
+            this.blockstack.redirectToSignIn("https//artusvranken.github.io/BlockDiary/", "https//artusvranken.github.io/BlockDiary/" + 'manifest.json', ['store_write']);
         },
     }
 });
