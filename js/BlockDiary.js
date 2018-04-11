@@ -19,3 +19,5 @@ var app = new Vue({
         },
     }
 });
+
+app.checkLogin();
