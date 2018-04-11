@@ -5,7 +5,8 @@ var app = new Vue({
     },
     methods: {
         loginClicked() {
-            this.blockstack.redirectToSignIn();
+            const origin = window.location.origin;
+            this.blockstack.redirectToSignIn(origin, origin + '/manifest.json', ['store_write']);
         },
     }
 });
