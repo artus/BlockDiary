@@ -1,6 +1,6 @@
 {
     "name": "BlockDiary",
-    "start_url": "artusvranken.github.io/BlockDiary/",
+    "start_url": "https://artusvranken.github.io/BlockDiary/",
     "description": "A diary app running on Blockstack.",
     "icons": [{
       "src": "https://artusvranken.github.io/BlockDiary/img/logo-bg.png",
