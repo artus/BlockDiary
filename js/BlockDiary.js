@@ -1,19 +1,20 @@
+var url = "https//artusvranken.github.io/BlockDiary/";
+
 var app = new Vue({
     el: "#diary-app",
     data: {
         blockstack: window.blockstack,
-        url: "https//artusvranken.github.io/BlockDiary/",
     },
     methods: {
         checkLogin() {
             if (this.blockstack.isSignInPending()) {
                 this.blockstack.handlePendingSignIn().then(function (userData) {
-                    window.location = this.url;
+                    window.location = url;
                 });
             }
         },
         loginClicked() {
-            this.blockstack.redirectToSignIn(this.url, this.url + 'manifest.json', ['store_write']);
+            this.blockstack.redirectToSignIn(url, url + 'manifest.json', ['store_write']);
         },
     }
 });
