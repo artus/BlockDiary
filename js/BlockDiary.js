@@ -32,8 +32,8 @@ var app = new Vue({
         handleTextUpdate(e) {
             if (this.blockstack.isUserSignedIn()) {
                 this.typing = true;
-                setTimeout(() => { this.typing = false; }, 2000);
-                setTimeout(() => { this.handleSave(); }, 3000);
+                setTimeout(() => { this.typing = false; }, 500);
+                setTimeout(() => { this.handleSave(); }, 1000);
             }
         },
         handleSave() {
