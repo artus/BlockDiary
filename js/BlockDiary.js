@@ -18,7 +18,7 @@ var app = new Vue({
             this.blockstack.redirectToSignIn("https://artusvranken.github.io/BlockDiary/", "https://artusvranken.github.io/BlockDiary/manifest.json", ['store_write']);
         },
         logoutClicked() {
-            this.blockstack.signUserOut();
+            this.blockstack.signUserOut(window.location.href);
         }
     }
 });

@@ -52,6 +52,7 @@ body
 
 #login-window
 {
+    transition: 0.2s;
     position: absolute;
     width: 250px;
     margin-top: 200px;
@@ -71,6 +72,7 @@ body
 
 #logout-button 
 {
+    transition: 0.2s;
     position: fixed;
     top: 10px;
     left: 10px;
@@ -78,8 +80,7 @@ body
     background-color: rgb(180, 34, 34);
     color: white;
     text-align: center;
-    padding-top: var(--diary-padding);
-    padding-bottom: var(--diary-padding);
+    padding: var(--diary-padding);
 
     cursor: pointer;
     font-size: 1.5em;
@@ -89,7 +90,6 @@ body
 
 #logout-button:hover, #login-window:hover
 {
-    transition: 0.5s;
     background-color: rgb(196, 52, 52);
 }
 
