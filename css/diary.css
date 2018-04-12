@@ -71,7 +71,26 @@ body
 
 #login-window:hover
 {
-    background-color: rgb(206, 46, 46);
+    position: fixed;
+    top: 10px;
+    left: 10px;
+
+    background-color: rgb(180, 34, 34);
+    color: white;
+    text-align: center;
+    padding-top: var(--diary-padding);
+    padding-bottom: var(--diary-padding);
+
+    cursor: pointer;
+    font-size: 1.5em;
+
+    border-radius: 5px;
+}
+
+#logout-button {
+    position: fixed;
+    padding: var(--diary-padding);
+    background-color: 
 }
 
 #diary-title-container
