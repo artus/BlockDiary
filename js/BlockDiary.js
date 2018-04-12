@@ -5,6 +5,8 @@ var app = new Vue({
     data: {
         blockstack: window.blockstack,
         content: "",
+        typing: false,
+        saving: false,
     },
     methods: {
         checkLogin() {
@@ -28,7 +30,17 @@ var app = new Vue({
             this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true}).then(() => console.log("Diary saved.")).catch(error => console.log(error));
         },
         handleTextUpdate(e) {
-            console.log(e);
+            this.typing = true;
+            setTimeout(() => { this.typing = false; }, 2000);
+            setTimeout(() => { this.handleSave(); }, 3000);
+        },
+        handleSave() {
+            if (!this.typing) {
+                this.saving = true;
+                console.log("saving...");
+                this.saveData();
+                this.saving = false;
+            }
         },
     }
 });
