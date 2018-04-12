@@ -14,7 +14,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "webpack js/requires.js -o js/bundle.js"
+    "bundle": "webpack js/requires.js -o js/bundle.js",
+    "push" : "npm run bundle && git add --all . && git commit && git push"
   },
   "repository": {
     "type": "git",
