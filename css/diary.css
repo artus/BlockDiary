@@ -69,7 +69,7 @@ body
     border-radius: 5px;
 }
 
-#login-window:hover
+#logout-button 
 {
     position: fixed;
     top: 10px;
@@ -87,10 +87,10 @@ body
     border-radius: 5px;
 }
 
-#logout-button {
-    position: fixed;
-    padding: var(--diary-padding);
-    background-color: 
+#logout-button:hover, #login-window:hover
+{
+    transition: 0.5s;
+    background-color: rgb(196, 52, 52);
 }
 
 #diary-title-container
