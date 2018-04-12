@@ -4,6 +4,7 @@ var app = new Vue({
     el: "#diary-app",
     data: {
         blockstack: window.blockstack,
+        content: "",
     },
     methods: {
         checkLogin() {
@@ -19,7 +20,16 @@ var app = new Vue({
         },
         logoutClicked() {
             this.blockstack.signUserOut(window.location.href);
-        }
+        },
+        loadData() {
+            this.blockstack.getFile('blockdiary.json', { decrypt: true}).then(file => app.content = file.content).catch(error => console.log(error));
+        },
+        saveData() {
+            this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true}).then(() => console.log("Diary saved.")).catch(error => console.log(error));
+        },
+        handleTextUpdate(e) {
+            console.log(e);
+        },
     }
 });
 
