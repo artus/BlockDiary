@@ -24,15 +24,17 @@ var app = new Vue({
             this.blockstack.signUserOut(window.location.href);
         },
         loadData() {
-            this.blockstack.getFile('blockdiary.json', { decrypt: true}).then(file => app.content = file.content).catch(error => console.log(error));
+            this.blockstack.getFile('blockdiary.json', { decrypt: true }).then(file => app.content = file.content).catch(error => console.log(error));
         },
         saveData() {
-            this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true}).then(() => console.log("Diary saved.")).catch(error => console.log(error));
+            this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true }).then(() => console.log("Diary saved.")).catch(error => console.log(error));
         },
         handleTextUpdate(e) {
-            this.typing = true;
-            setTimeout(() => { this.typing = false; }, 2000);
-            setTimeout(() => { this.handleSave(); }, 3000);
+            if (this.blockstack.isUserSignedIn()) {
+                this.typing = true;
+                setTimeout(() => { this.typing = false; }, 2000);
+                setTimeout(() => { this.handleSave(); }, 3000);
+            }
         },
         handleSave() {
             if (!this.typing) {
