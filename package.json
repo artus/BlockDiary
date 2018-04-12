@@ -4,6 +4,7 @@
   "description": "A diary app on Blockstack",
   "main": "index.js",
   "dependencies": {
+    "ajv": "^6.4.0",
     "blockstack": "^0.17.1",
     "webpack": "^4.5.0"
   },
