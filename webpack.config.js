@@ -1,19 +1,21 @@
 const webpack = require('webpack');
 
-const UglifyEsPlugin = require('uglify-es-webpack-plugin');
-const UglifyEsPluginConfig = new UglifyEsPlugin({
-    mangle: {
-        reserved: [
-            'Buffer',
-            'BigInteger',
-            'Point',
-            'ECPubKey',
-            'ECKey',
-            'sha512_asm',
-            'asm',
-            'ECPair',
-            'HDNode'
-        ]
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPluginConfig = new UglifyJsPlugin({
+    uglifyOptions: {
+        mangle: {
+            reserved: [
+                'Buffer',
+                'BigInteger',
+                'Point',
+                'ECPubKey',
+                'ECKey',
+                'sha512_asm',
+                'asm',
+                'ECPair',
+                'HDNode'
+            ]
+        }
     }
 });
 
@@ -23,6 +25,6 @@ module.exports = {
     output: {
         filename: './js/bundle.js',
     }, plugins: [
-        UglifyEsPluginConfig
+        UglifyJsPluginConfig
     ]
 }
