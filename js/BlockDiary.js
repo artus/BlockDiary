@@ -16,6 +16,10 @@ var app = new Vue({
                     window.location = "https://artusvranken.github.io/BlockDiary/";
                 });
             }
+            else if(this.blockstack.isUserSignedIn())
+            {
+                this.loadData();
+            }
         },
         loginClicked() {
             this.blockstack.redirectToSignIn("https://artusvranken.github.io/BlockDiary/", "https://artusvranken.github.io/BlockDiary/manifest.json", ['store_write', 'publish_data']);
@@ -24,7 +28,7 @@ var app = new Vue({
             this.blockstack.signUserOut(window.location.href);
         },
         loadData() {
-            this.blockstack.getFile('blockdiary.json', { decrypt: true }).then(file => app.content = file.content).catch(error => console.log(error));
+            this.blockstack.getFile('blockdiary.json', { decrypt: true }).then(file => this.content = file.content).catch(error => console.log(error));
         },
         saveData() {
             this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true }).then(() => console.log("Diary saved.")).catch(error => console.log(error));
