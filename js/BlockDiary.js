@@ -36,7 +36,7 @@ var app = new Vue({
             this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true }).then(() => console.log("Diary saved.")).catch(error => console.log(error));
         },
         onTextUpdate() {
-            _.debounce(app.saveData, 500);
+            _.debounce(() => { console.log("Debouncing..."), app.saveData(); }, 500)();
         }
     }
 });
