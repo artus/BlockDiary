@@ -28,7 +28,7 @@ var app = new Vue({
             this.blockstack.signUserOut(window.location.href);
         },
         loadData() {
-            this.blockstack.getFile('blockdiary.json', { decrypt: true }).then(file => this.content = file.content).catch(error => console.log(error));
+            this.blockstack.getFile('blockdiary.json', { decrypt: true }).then(file => this.content = JSON.parse(file.content)).catch(error => console.log(error));
         },
         saveData() {
             this.blockstack.putFile('blockdiary.json', JSON.stringify({ content: this.content }), { encrypt: true }).then(() => console.log("Diary saved.")).catch(error => console.log(error));
