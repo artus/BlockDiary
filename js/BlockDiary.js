@@ -13,7 +13,7 @@ var app = new Vue({
             if (this.blockstack.isSignInPending()) {
                 console.log("Handling login.");
                 this.blockstack.handlePendingSignIn().then(function (userData) {
-                    window.location = "https://artusvranken.github.io/BlockDiary/";
+                    window.location = "https://artus.github.io/BlockDiary/";
                 });
             }
             else if(this.blockstack.isUserSignedIn())
@@ -22,7 +22,7 @@ var app = new Vue({
             }
         },
         loginClicked() {
-            this.blockstack.redirectToSignIn("https://artusvranken.github.io/BlockDiary/", "https://artusvranken.github.io/BlockDiary/manifest.json", ['store_write', 'publish_data']);
+            this.blockstack.redirectToSignIn("https://artus.github.io/BlockDiary/", "https://artus.github.io/BlockDiary/manifest.json", ['store_write', 'publish_data']);
         },
         logoutClicked() {
             this.blockstack.signUserOut(window.location.href);
