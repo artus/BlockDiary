@@ -1,4 +1,4 @@
-var url = "https://artusvranken.github.io/BlockDiary/";
+var url = "https://artus.github.io/BlockDiary/";
 
 var app = new Vue({
     el: "#diary-app",
